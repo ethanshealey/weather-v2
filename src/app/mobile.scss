@@ -1,0 +1,11 @@
+@media only screen and (max-width: 600px) {
+    #weather {
+        width: 90vw !important;
+    }
+    .weather-info {
+        margin-left: -20px !important;
+    }
+    .dropdown-input-container input {
+        width: 80vw;
+    }
+  }

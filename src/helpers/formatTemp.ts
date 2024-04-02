@@ -1,0 +1,1 @@
+export default (temp: string, unit: string) => unit === 'c' ? ((parseInt(temp) - 32) * (5/9)).toPrecision(2) : parseInt(temp)

@@ -1,0 +1,1 @@
+export default (epoch: number) => new Date(new Date(0).setUTCSeconds(epoch)).toLocaleDateString('en-EN', { weekday: 'short' })

@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+$text: #d8e3d8;
+$background: #080b0b;
+$foreground: #181c1c;
+$primary: #9ddfe1;
+$secondary: #47645a;
+$accent: #6172cf;
+$font: 'Nunito Sans', sans-serif;
+
+* {
+  transition: .5s;
+  animation: fadeIn .25s linear;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: $background;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: $foreground;
+  color: $text;
+  font-family: $font;
+  width: 100%;
+  .header-left {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-weight: 1000;
+      span {
+        font-weight: 100;
+        font-size: 20px;
+        border-left: thin solid $text;
+        margin-left: 10px;
+        padding-left: 7px;
+        opacity: 50%;
+      }
+    }
+  }
+}
+
+#search-bar-wrapper {
+  width: 100%;
+  color: $text;
+}
+
+.dropdown-input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: $font;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100vw;
+  input {
+    border-radius: 0 25px 25px 0;
+    border: none;
+    outline: none;
+    height: 60px;
+    padding: 0;
+    background-color: $foreground;
+    color: $text;
+    font-family: $font;
+    min-width: 65vw;
+  }
+  .go-btn {
+    background-color: $foreground;
+    border-radius: 25px 0 0 25px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    color: $text;
+  }
+}
+
+#weather-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  #weather {
+    border-radius: 5px 5px 5px 5px;
+    background-color: $foreground;
+    width: 70vw;
+    color: $text;
+    padding: 5px;
+    font-family: $font;
+    display: flex;
+    flex-direction: column;
+    .location {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 30px;
+      padding-right: 30px;
+      h1 {
+        .location-sub {
+          font-size: 15px;
+          font-weight: 100;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+        }
+      }
+      
+    }
+    .weather-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: -50px;
+      img {
+        min-width: 100px;
+        margin-left: -25px;
+        
+      }
+      .current-weather-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: -25px;
+        .temp {
+          font-size: 65px;
+          display: flex;
+
+          .unit-switcher {
+            font-weight: 100;
+            font-size: 15px;
+            height: 100%;
+            margin-top: 16px;
+            .unit-divider {
+              opacity: 50%;
+            }
+            .unit {
+              opacity: 50%;
+              cursor: pointer;
+              &:hover {
+                opacity: 75%;
+              }
+            }
+            .active-unit {
+              cursor: pointer;
+            }
+          }
+        }
+        .other-info {
+          font-size: 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          opacity: 50%;
+          border-left: thin solid $text;
+          margin-left: 10px;
+          padding-left: 10px;
+          height: 100%;
+          p {
+            margin: 0;
+            font-weight: 400;
+            margin-bottom: 2.5px;
+          }
+        }
+      }
+    }
+    #description {
+      text-align: center;
+      margin-top: -60px;
+      font-weight: 200;
+    }
+    .date-picker-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 25px;
+      .date-picker {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: scroll;
+        .day {
+          background-color: $foreground;
+          margin: 0 5px 0 5px;
+          padding: 8px;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          max-width: 100px;
+          cursor: pointer;
+          .weekday {
+            font-size: 15px;
+          }
+          img {
+            width: 80px;
+            margin-top: -25px;
+            margin-bottom: -25px;
+          }
+          .high-low {
+            display: flex;
+            flex-direction: row;
+            .high {
+              margin-right: 2.5px;
+            }
+            .low {
+              opacity: 50%;
+              margin-left: 2.5px;
+            }
+          }
+        }
+        .day-active {
+          background-color:#0f1313;
+        }
+      }
+    }
+  }
+}
