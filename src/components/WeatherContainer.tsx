@@ -2,6 +2,7 @@ import formatTemp from '@/helpers/formatTemp'
 import formatWindSpeed from '@/helpers/formatWindSpeed'
 import getShortWeekdayNameByEpoch from '@/helpers/getShortWeekdayNameByEpoch'
 import getWeatherIconFromImageName from '@/helpers/getWeatherIconFromImageName'
+import Spinner from '@/components/Spinner'
 import { useEffect, useState } from 'react'
 
 type WeatherContainerType = {
@@ -34,8 +35,10 @@ const WeatherContainer = ({ forecast, isLoading }: WeatherContainerType) => {
 
   return (
     <div id="weather-container">
-      { forecast && current && !isLoading ? (
-        <div id="weather" style={{ display: isImageLoaded ? 'flex' : 'none' }}>
+      { forecast && (
+        <>
+        { current && !isLoading ? (
+          <div id="weather" style={{ display: isImageLoaded ? 'flex' : 'none' }}>
           <div className="location">
             <h1>{ forecast?.name }<span className='location-sub'>{ forecast?.region }, { forecast?.country }</span></h1>
           </div>
@@ -78,7 +81,14 @@ const WeatherContainer = ({ forecast, isLoading }: WeatherContainerType) => {
             </div>
           </div>
         </div>
-      ) : (<></>)}
+        ) : (
+          <div id="weather-loading">
+            <Spinner />
+          </div>
+        )}
+        </>
+      )}
+      
     </div>
   )
 }
